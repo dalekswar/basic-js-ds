@@ -18,7 +18,7 @@ class Queue {
   }
 
   enqueue(value) {
-    const node = new ListNode(value);
+    const node = { value, next: null };
     if (!this.head) {
       this.head = node;
       this.tail = node;
@@ -29,14 +29,13 @@ class Queue {
   }
 
   dequeue() {
-    if (!this.head) return null; 
+    if (!this.head) return undefined;
     const val = this.head.value;
     this.head = this.head.next;
     if (!this.head) this.tail = null;
     return val;
   }
 }
-
 module.exports = {
   Queue,
 };
